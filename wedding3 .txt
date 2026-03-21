@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我們要結婚了！ | 信安 & 懿芹</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            /* 老錢風高級配色 */
+            --deep-racing-green: #1A3326; 
+            --antique-bronze: #AF9463;    
+            --warm-parchment: #FDFCF5;   
+            --text-light: #E0E0E0;
+            --en-accent: 'Dancing Script', cursive;
+            --zh-serif: 'Noto Serif TC', serif;
+        }
+
+        html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+        body { font-family: var(--zh-serif); margin: 0; background-color: var(--deep-racing-green); overflow-x: hidden; }
+
+        .page-section {
+            height: 100vh; width: 100%; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; scroll-snap-align: start;
+            position: relative; box-sizing: border-box; overflow: hidden;
+        }
+
+        /* --- 1. 封面動畫 --- */
+        .fashion-envelope { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; z-index: 100; transition: visibility 0s 1.5s; }
+        .door { width: 50%; height: 100%; background: var(--warm-parchment); display: flex; align-items: center; transition: transform 1.2s cubic-bezier(0.7, 0, 0.3, 1); position: relative; }
+        .door-left { justify-content: flex-end; border-right: 0.5px solid #EAE0D0; }
+        .door-right { justify-content: flex-start; }
+        .fashion-logo {
+            position: absolute; width: 80px; height: 80px; background: var(--warm-parchment); border: 1px solid var(--antique-bronze); border-radius: 50%;
+            top: 50%; left: 100%; transform: translate(-50%, -50%); z-index: 101; display: flex; justify-content: center; align-items: center;
+            font-family: var(--en-accent); color: var(--antique-bronze); font-size: 28px;
+        }
+        .opened .door-left { transform: translateX(-100%); }
+        .opened .door-right { transform: translateX(100%); }
+        .opened.fashion-envelope { visibility: hidden; }
+
+        /* --- 2. 第一頁：滿版內頁 (核心資訊完整版) --- */
+        .invitation-card-section { 
+            background-color: var(--deep-racing-green); 
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50.1 29.9c.1.3.1.6.1.9 0 3.3-2.7 6-6 6-1.1 0-2.1-.3-3-.8-1.1 1.6-3 2.8-5.2 2.8-2.2 0-4.1-1.2-5.2-2.8-.9.5-1.9.8-3 .8-3.3 0-6-2.7-6-6 0-.3 0-.6.1-.9-.8-1.1-1.3-2.5-1.3-4 0-3.3 2.7-6 6-6 .3 0 .6.1.9.1-1.1-1.6-1.1-3.6 0-5.2-.3-.1-.6-.1-.9-.1-3.3 0-6 2.7-6 6 0 1.5.5 2.9 1.3 4 .1.3.1.6.1.9 0 3.3-2.7 6-6 6-1.1 0-2.1-.3-3-.8-.9.5-1.9.8-3 .8-3.3 0-6-2.7-6-6 0-.3 0-.6.1-.9.8-1.1 1.3-2.5 1.3-4 0-3.3 2.7-6 6-6 .3 0 .6.1.9.1.5-.9 1.2-1.7 2.1-2.3-.9-.5-1.9-.8-3-.8-3.3 0-6 2.7-6 6 0 .3 0 .6.1.9.8 1.1 1.3 2.5 1.3 4 0 3.3-2.7 6-6 6-1.1 0-2.1-.3-3-.8-1.1 1.6-3 2.8-5.2 2.8-2.2 0-4.1-1.2-5.2-2.8-.9.5-1.9.8-3 .8-3.3 0-6-2.7-6-6 0-.3 0-.6.1-.9-.8-1.1-1.3-2.5-1.3-4 0-3.3 2.7-6 6-6 .3 0 .6.1.9.1-.5-.9-1.2-1.7-2.1-2.3.9-.5 1.9-.8 3-.8 3.3 0 6 2.7 6 6 0 .3 0 .6.1.9.8 1.1 1.3 2.5 1.3 4 0 3.3-2.7 6-6 6z' fill='%23af9463' fill-opacity='0.03'/%3E%3C/svg%3E");
+        }
+        
+        .elegant-full-page {
+            width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            color: var(--text-light); padding: 4vh 0; box-sizing: border-box; text-align: center;
+        }
+
+        .card-label { font-size: 1.2rem; letter-spacing: 8px; color: var(--antique-bronze); text-transform: uppercase; margin-bottom: 3vh; font-weight: 300; }
+
+        .arch-frame {
+            width: 60%; max-width: 320px; aspect-ratio: 0.82; border: 0.5px solid rgba(175, 148, 99, 0.4); padding: 10px; border-radius: 300px 300px 0 0;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.4); margin-bottom: 3vh;
+        }
+        .arch-img {
+            width: 100%; height: 100%;
+            background: url('https://i.meee.com.tw/6Zt2aK9.png') no-repeat;
+            background-size: cover; background-position: 50% 15%; border-radius: 300px 300px 0 0;
+        }
+
+        /* 裝飾分隔符號 */
+        .divider-icon { width: 120px; height: 1px; background: linear-gradient(90deg, transparent, var(--antique-bronze), transparent); margin: 20px 0; }
+
+        .info-content-wrapper { display: flex; flex-direction: column; align-items: center; width: 100%; }
+        .card-en-names { font-size: 3rem; color: var(--warm-parchment); margin: 0; font-family: var(--en-accent); }
+        .card-en-names span { font-size: 0.6em; vertical-align: middle; color: var(--antique-bronze); margin: 0 10px; }
+        .card-zh-names { font-size: 1.3rem; color: #BBB; letter-spacing: 10px; margin: 12px 0; font-weight: 300; text-indent: 10px; }
+        
+        .card-date { font-size: 2rem; color: var(--antique-bronze); margin: 10px 0; letter-spacing: 3px; font-weight: 400; }
+        .card-date-sub { font-size: 0.85rem; letter-spacing: 3px; color: #888; text-transform: uppercase; font-weight: bold; }
+
+        /* --- 3. 第二頁：婚禮詳情 (暖白底色) --- */
+        .section-title { font-family: var(--en-accent) !important; font-size: 3rem; color: var(--deep-racing-green); text-align: center; margin-bottom: 1rem; }
+        .bg-watermark { position: absolute; font-size: 15rem; font-family: var(--en-accent); color: rgba(45, 79, 60, 0.03); z-index: 0; pointer-events: none; }
+
+        .countdown-container-styled {
+            background-color: var(--deep-racing-green); padding: 15px 25px; border-radius: 50px;
+            display: inline-flex; gap: 20px; justify-content: center; margin: 30px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .count-unit { text-align: center; color: var(--warm-parchment); }
+        .count-num { font-size: 1.8rem; font-weight: bold; display: block; }
+        .count-lab { font-size: 0.6rem; opacity: 0.7; text-transform: uppercase; letter-spacing: 1px; }
+
+        .button { 
+            padding: 12px 30px; border-radius: 50px; text-decoration: none; color: white;
+            font-size: 1rem; transition: 0.4s; letter-spacing: 1px; font-weight: bold; display: inline-block;
+        }
+        .btn-map { background-color: #4A7045; }
+        .btn-form { background-color: #5C623A; }
+
+        /* --- 4. 行程表 (中置設計) --- */
+        .timeline { position: relative; width: 85%; max-width: 400px; padding: 20px 0; }
+        .timeline::before { content: ""; position: absolute; left: 50%; transform: translateX(-50%); top: 0; width: 1px; height: 100%; background: #DDD; }
+        .timeline-item { margin-bottom: 40px; position: relative; width: 100%; text-align: center; z-index: 1; }
+        .timeline-time { font-family: var(--en-accent); font-size: 1.6rem; color: var(--antique-bronze); display: block; }
+        .timeline-dot { width: 10px; height: 10px; background: var(--deep-racing-green); border-radius: 50%; margin: 10px auto; border: 3px solid #f9f4e8; }
+
+        /* --- 5. 相簿 --- */
+        .gallery-wrapper { width: 90%; max-width: 900px; height: 80vh; overflow-y: auto; padding: 10px; }
+        .grid-landscape { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .grid-portrait { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 15px; }
+        .gallery-img { width: 100%; object-fit: cover; border-radius: 8px; filter: grayscale(10%); transition: 0.5s; }
+        .gallery-img:hover { filter: grayscale(0%); transform: scale(1.02); }
+
+        @media (max-width: 600px) {
+            .card-en-names { font-size: 2.2rem; }
+            .card-zh-names { font-size: 1rem; letter-spacing: 6px; }
+            .section-title { font-size: 2.5rem; }
+            .grid-landscape { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="fashion-envelope" id="fashionEnvelope">
+        <div class="door door-left"><div class="fashion-logo">E & A</div></div>
+        <div class="door door-right"></div>
+    </div>
+
+    <section class="invitation-card-section page-section">
+        <div class="elegant-full-page" data-aos="fade">
+            <div class="card-label" data-aos="fade-down" data-aos-delay="300">Save the day</div>
+            
+            <div class="arch-frame" data-aos="zoom-in" data-aos-duration="1500">
+                <div class="arch-img"></div>
+            </div>
+            
+            <div class="info-content-wrapper" data-aos="fade-up" data-aos-delay="600">
+                <h2 class="card-en-names">Edward <span>&</span> Ariel</h2>
+                <div class="card-zh-names">周信安 & 施懿芹</div>
+                
+                <div class="divider-icon"></div>
+                
+                <div class="card-date">2026.10.10</div>
+                <div class="card-date-sub">Saturday | 11:30 AM | 2026</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section" id="wedding-info" style="background-color: var(--warm-parchment);">
+        <div class="bg-watermark" style="top: 10%; left: -5%;">Events</div>
+        <div style="text-align: center; width: 90%; z-index: 1;">
+            <h2 class="section-title" data-aos="fade-down">Wedding Invitation</h2>
+            <div style="width: 40px; height: 1px; background: var(--antique-bronze); margin: 0 auto 2rem;"></div>
+            
+            <p style="letter-spacing: 3px; font-size: 1.1rem; color: #555; margin-bottom: 2.5rem;" data-aos="fade-up">誠摯邀請您見證我們的幸福時刻</p>
+            
+            <div style="margin-bottom: 2.5rem;" data-aos="fade-up">
+                <strong style="color: var(--deep-racing-green); font-size: 1.3rem; display: block; margin-bottom: 0.5rem;">📍 老新台菜 十全店 燕匯廳</strong>
+                <span style="color: #777;">高雄市三民區十全三路265號</span>
+            </div>
+            <div style="margin: 20px 0; color: #555; line-height: 1.8;">
+            <strong style="color: var(--deep-racing-green); font-family: 'Noto Serif TC'; font-size: 1.3rem; font-weight: 700;">📅 2026/10/10 11:30 入席</strong>
+            </div>
+            <div class="countdown-container-styled" data-aos="zoom-in">
+                <div class="count-unit"><span class="count-num day-val">00</span><span class="count-lab">Days</span></div>
+                <div class="count-unit"><span class="count-num hour-val">00</span><span class="count-lab">Hrs</span></div>
+                <div class="count-unit"><span class="count-num min-val">00</span><span class="count-lab">Mins</span></div>
+            </div>
+
+            <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center;">
+                <a href="https://maps.app.goo.gl/QgzrZYGqrvd1Qgts8" target="_blank" class="button btn-map" data-aos="fade-right">地圖導覽</a>
+                <a href="#" class="button btn-form" data-aos="fade-left">回覆表單</a>
+            </div>
+        </div>
+    </section>
+
+<section class="page-section" style="background-color: #f9f4e8;">
+    <div class="bg-watermark" style="bottom: 5%; right: -5%; top: auto; left: auto;">Schedule</div>
+    
+    <h2 class="section-title" data-aos="fade-down">Wedding Schedule</h2>
+    <div class="timeline">
+        <div class="timeline-item" data-aos="fade-up">
+            <span class="timeline-time">11 : 30</span>
+            <div class="timeline-dot"></div>
+            <div style="color: #444; letter-spacing: 2px;">Guest Arrival<br><small>賓客簽到</small></div>
+        </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                <span class="timeline-time">12 : 00</span>
+                <div class="timeline-dot"></div>
+                <div style="color: #444; letter-spacing: 2px;">Grand Entrance<br><small>婚宴開始</small></div>
+            </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+                <span class="timeline-time">15 : 00</span>
+                <div class="timeline-dot"></div>
+                <div style="color: #444; letter-spacing: 2px;">Farewell<br><small>幸福謝客</small></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section" style="background-color: var(--warm-parchment);">
+        <h2 class="section-title" data-aos="fade-up">Our Moments</h2>
+        <div class="gallery-wrapper" data-aos="fade-up">
+            <div class="grid-landscape">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800" class="gallery-img">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800" class="gallery-img">
+            </div>
+            <div class="grid-portrait">
+                <img src="https://i.meee.com.tw/SI7qzVj.jpg" class="gallery-img" style="aspect-ratio:3/4">
+                <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=600" class="gallery-img" style="aspect-ratio:3/4">
+                <img src="https://images.unsplash.com/photo-1522673607200-1648832cee98?auto=format&fit=crop&w=600" class="gallery-img" style="aspect-ratio:3/4">
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1200, once: false, offset: 100, easing: 'ease-out-back' });
+        window.onload = () => { setTimeout(() => { document.getElementById('fashionEnvelope').classList.add('opened'); }, 500); };
+
+        const weddingDate = new Date("Oct 10, 2026 11:30:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const dist = weddingDate - now;
+            const d = Math.max(0, Math.floor(dist / 86400000));
+            const h = Math.max(0, Math.floor((dist % 86400000) / 3600000));
+            const m = Math.max(0, Math.floor((dist % 3600000) / 60000));
+            document.querySelector(".day-val").innerText = d.toString().padStart(2, '0');
+            document.querySelector(".hour-val").innerText = h.toString().padStart(2, '0');
+            document.querySelector(".min-val").innerText = m.toString().padStart(2, '0');
+        }, 1000);
+    </script>
+</body>
+</html>
