@@ -17,8 +17,11 @@
             --zh-serif: 'Noto Serif TC', serif;
         }
 
-        html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
-        body { font-family: var(--zh-serif); margin: 0; background-color: var(--deep-racing-green); overflow-x: hidden; }
+        html { scroll-snap-type: y mandatory; scroll-behavior: smooth; overflow-x: hidden; /* 新增：禁止水平捲動 */
+    width: 100%;}
+        body { font-family: var(--zh-serif); margin: 0; background-color: var(--deep-racing-green); overflow-x: hidden; /* 確保內容不超出 */
+    width: 100%;
+    position: relative;}
 
         .page-section {
             height: 100vh; width: 100%; display: flex; flex-direction: column;
