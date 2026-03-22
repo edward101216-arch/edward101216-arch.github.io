@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我們要結婚了！ | 信安 & 懿芹</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -18,7 +18,7 @@
         }
 
         html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
-        body { font-family: var(--zh-serif); margin: 0; background-color: var(--deep-racing-green); overflow-x: hidden; width: 100vw; position: relative;}
+        body { font-family: var(--zh-serif); margin: 0; background-color: var(--deep-racing-green); overflow-x: hidden; }
 
         .page-section {
             height: 100vh; width: 100%; display: flex; flex-direction: column;
@@ -35,8 +35,8 @@
             position: absolute; width: 80px; height: 80px; background: var(--warm-parchment); border: 1px solid var(--antique-bronze); border-radius: 50%;
             top: 50%; left: 100%; transform: translate(-50%, -50%); z-index: 101; display: flex; justify-content: center; align-items: center;
             font-family: var(--en-accent); color: var(--antique-bronze); font-size: 28px;
-        }
-        	/* 專門縮小封面 Logo 內的 & 符號 */
+	}
+	/* 專門縮小封面 Logo 內的 & 符號 */
 	.fashion-logo span {
 	    font-size: 0.6em;       /* 縮小 & */
 	    margin: 0 4px;         /* 調整間距 */
@@ -85,8 +85,7 @@
 
         /* --- 3. 第二頁：婚禮詳情 (暖白底色) --- */
         .section-title { font-family: var(--en-accent) !important; font-size: 3rem; color: var(--deep-racing-green); text-align: center; margin-bottom: 1rem; }
-        .bg-watermark { position: absolute; font-size: 15rem; font-family: var(--en-accent); color: rgba(45, 79, 60, 0.03); z-index: 0; pointer-events: none; white-space: nowrap; /* 防止換行 */
-    user-select: none;   /* 防止選取 */}
+        .bg-watermark { position: absolute; font-size: 15rem; font-family: var(--en-accent); color: rgba(45, 79, 60, 0.03); z-index: 0; pointer-events: none; }
 
         .countdown-container-styled {
             background-color: var(--deep-racing-green); padding: 15px 25px; border-radius: 50px;
@@ -129,8 +128,7 @@
 <body>
 
     <div class="fashion-envelope" id="fashionEnvelope">
-        <div class="door door-left"><div class="fashion-logo">E <span>&</span> A</div></div>
-        <div class="door door-right"></div>
+        <div class="door door-left"><div class="fashion-logo">E <span>&</span> A</div></div><div class="door door-right"></div>
     </div>
 
     <section class="invitation-card-section page-section">
