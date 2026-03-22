@@ -17,27 +17,24 @@
             --zh-serif: 'Noto Serif TC', serif;
         }
 
-        html { scroll-snap-type: y mandatory; scroll-behavior: smooth; overflow-x: hidden; /* 新增：禁止水平捲動 */
-    width: 100%; height: 100%;}
-        body { font-family: var(--zh-serif); margin: 0; background-color: var(--deep-racing-green); overflow-x: hidden; /* 確保內容不超出 */
-    width: 100%; height: 100%; overflow-y: auto; /* 讓 html 控制 snapping */
-    position: relative;}
+        html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+        body { font-family: var(--zh-serif); margin: 0; background-color: var(--deep-racing-green); overflow-x: hidden; }
 
         .page-section {
-            height: 100dvh; width: 100%; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; scroll-snap-align: start; scroll-snap-stop: always; /* 強制每次只跳一頁，不連貫滑動 */
+            height: 100vh; width: 100%; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; scroll-snap-align: start;
             position: relative; box-sizing: border-box; overflow: hidden;
         }
 
         /* --- 1. 封面動畫 --- */
-        .fashion-envelope { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; z-index: 100; transition: visibility 0s 1.5s; pointer-events: none; /* 防止開啟後干擾點擊 */}
+        .fashion-envelope { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; z-index: 100; transition: visibility 0s 1.5s; }
         .door { width: 50%; height: 100%; background: var(--warm-parchment); display: flex; align-items: center; transition: transform 1.2s cubic-bezier(0.7, 0, 0.3, 1); position: relative; }
         .door-left { justify-content: flex-end; border-right: 0.5px solid #EAE0D0; }
         .door-right { justify-content: flex-start; }
         .fashion-logo {
             position: absolute; width: 80px; height: 80px; background: var(--warm-parchment); border: 1px solid var(--antique-bronze); border-radius: 50%;
             top: 50%; left: 100%; transform: translate(-50%, -50%); z-index: 101; display: flex; justify-content: center; align-items: center;
-            font-family: var(--en-accent); color: var(--antique-bronze); font-size: 28px; box-sizing: border-box; /* 新增：確保邊框不影響寬度 */
+            font-family: var(--en-accent); color: var(--antique-bronze); font-size: 28px;
 	}
 	/* 專門縮小封面 Logo 內的 & 符號 */
 	.fashion-logo span {
@@ -50,7 +47,7 @@
         }
         .opened .door-left { transform: translateX(-100%); }
         .opened .door-right { transform: translateX(100%); }
-        .opened.fashion-envelope { visibility: hidden; display: none; /* 完全開啟後直接移除，防止跑位出現 */}
+        .opened.fashion-envelope { visibility: hidden; }
 
         /* --- 2. 第一頁：滿版內頁 (核心資訊完整版) --- */
         .invitation-card-section { 
@@ -125,13 +122,6 @@
             .card-zh-names { font-size: 1rem; letter-spacing: 6px; }
             .section-title { font-size: 2.5rem; }
             .grid-landscape { grid-template-columns: 1fr; }
-			.countdown-container-styled {
-        gap: 10px;        /* 縮小間距防止撐開 */
-        padding: 10px 15px;
-    }
-    .count-num {
-        font-size: 1.4rem; /* 調小數字 */
-    }
         }
     </style>
 </head>
